@@ -1,13 +1,53 @@
-<h1>Welcome {{ user.username }}</h1>
+{% extends 'base.html' %}
 
-<p>{{ user.first_name}}</p>
-<p>{{ user.last_name}}</p>
-<p>{{ user.email}}</p>
+{% block content %}
 
-<p>{{ user.exam.modules.all }}</p>
-<p>{{ user.exam.questions.all }}</p>
+<header>
+    <h1>Welcome {{ user.username }}</h1>
 
-<form action="{% url 'logout' %}" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Salir">
-</form>
+</header>
+
+
+<section>
+
+    <div class="datos">
+        <h3>Nombre(s)</h3>
+        <p>{{ user.first_name}}</p>
+    
+        <h3>Apellidos</h3>
+        <p>{{ user.last_name}}</p>
+    
+        <h3>Correo</h3>
+        <p>{{ user.email}}</p>
+    
+    </div>
+    
+    <div class="modulos">
+        <h3>MODULOS</h3>
+        {% for module in user.exam.modules.all %}
+        <a href=" {% url 'exam:question' module.id %} " class="modulo">{{ module }} </a>
+        {% endfor %}
+        
+    </div>
+    
+    
+</section>
+
+
+<div class="div-btn-logout">
+
+    <form action="{% url 'logout' %}" method="post" >
+        {% csrf_token %}
+        <input type="submit" value="Salir" class="btn-logout">
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

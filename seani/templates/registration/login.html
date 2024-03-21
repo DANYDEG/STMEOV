@@ -1,6 +1,21 @@
-<h1>Login</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form}}
-    <input type="submit" value="Ingresar">
-</form>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header>
+    <h1>Login</h1>
+
+</header>
+
+<section>
+
+    <form method="post" class="fm-login">
+        {% csrf_token %}
+        
+        {{ form }}
+        
+        <input type="submit" value="Ingresar" >
+    </form>
+</section>
+
+{% endblock %}
