@@ -20,16 +20,16 @@ def home(request):
 
 @login_required
 
-def question(request, m_id, q_id =1):
+def question(request, m_id, q_id=1):
     exam = request.user.exam
 
     if request.method == 'POST':
         answer = request.POST['answer']
         questions = exam.breakdown_set.filter(question__module_id=m_id)
-        if q_id <= 0 or q_id > len(questions):
-            return redirect('exam:home')
+        # if q_id <= 0 or q_id > len(questions):
+        #     return redirect('exam:home')
 
-        question = questions[q_id - 1]
+        question = questions[q_id - 1 ]
         question.answer = answer
         question.save()
         return redirect('exam:question', m_id, q_id +1)
@@ -37,10 +37,10 @@ def question(request, m_id, q_id =1):
     try:
 
         questions = exam.breakdown_set.filter(question__module_id=m_id)
-        if q_id <= 0 or q_id > len(questions):
-            return redirect('exam:home')
+        # if q_id <= 0 or q_id > len(questions):
+        #     return redirect('exam:home')
 
-        question = questions[q_id - 1].question
+        question = questions[q_id - 1 ].question
         answer = questions[q_id - 1].answer
         return render(request, 'exam/question.html', {
             'question': question,
