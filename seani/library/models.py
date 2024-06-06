@@ -33,6 +33,7 @@ class Question(models.Model):
     question_text = models.CharField(
         verbose_name = 'Texto de la pregunta',
         max_length=200, null=True, blank=True)
+    
     # question_image = models.ImageField(
     #     verbose_name='Imagen de la pregunta',
     #     upload_to='questions', null=True, blank =True)
@@ -44,17 +45,15 @@ class Question(models.Model):
     #     null = True, blank = True
     #     )
 
-
-
     answer1 = models.CharField(
         verbose_name='Respuesta A',
         max_length=200,
-        # default='Me interesa'
+        default='Me interesa'
         )
     answer2 = models.CharField(
         verbose_name='Respuesta B',
         max_length=200,
-        # default='No me interesa'
+        default='No me interesa'
         )
     
 
