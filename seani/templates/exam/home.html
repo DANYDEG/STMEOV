@@ -1,54 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <header>
-    <h1>Welcome {{ user.username }}</h1>
-
+    <h1 class="welcome">Bienvenido {{ user.username }}</h1>
+    <div class="div-btn-logout">
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Cerrar Sesion" class="btn-logout">
+        </form>
+    </div>
 </header>
 
-
 <section>
-
     <div class="datos">
         <h3>Nombre(s)</h3>
-        <p>{{ user.first_name}}</p>
+        <p>{{ user.first_name }}</p>
     
         <h3>Apellidos</h3>
-        <p>{{ user.last_name}}</p>
+        <p>{{ user.last_name }}</p>
     
         <h3>Correo</h3>
-        <p>{{ user.email}}</p>
-
+        <p>{{ user.email }}</p>
     
+        <h3>Carrera</h3>
+        <p>{{ user.exam.career }}</p>
     </div>
-    
-    <div class="modulos">
-        <h3>MODULOS</h3>
-        {% for module in user.exam.modules.all %}
-        <a href=" {% url 'exam:question' module.id %} " class="modulo">{{ module }} </a>
-        {% endfor %}
-        
-    </div>
-    
-    
 </section>
 
-
-<div class="div-btn-logout">
-
-    <form action="{% url 'logout' %}" method="post" >
-        {% csrf_token %}
-        <input type="submit" value="Salir" class="btn-logout">
-    </form>
-</div>
-
-
-
-
-
-
-
+<section>
+    <div class="modulos">
+        <h3>Test Orientacion Vocacional</h3>
+        <a href="{% url 'exam:test' 1 %}" class="startTest">Iniciar Test</a>
+    </div>
+</section>
 
 
 {% endblock %}

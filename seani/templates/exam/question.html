@@ -40,12 +40,12 @@
     <table>
         <tr>
             <td>
-                <input type="radio" name="answer" id="ans1" value="A" onclick="setTimeout(() => { this.form.submit(); }, 500)" {% if answer == 'A' %}checked{% endif %}>
+                <input type="radio" name="answer" id="ans1" value="A"  onclick="setTimeout(() => { this.form.submit(); }, 800)" {% if answer == 'A' %}checked{% endif %}>
                 <label for="ans1">{{ question.answer1 }}</label>
             </td>
 
             <td>
-                <input type="radio" name="answer" id="ans2" value="B" onclick="setTimeout(() => { this.form.submit(); }, 500)" {% if answer == 'B' %}checked{% endif %}>
+                <input type="radio" name="answer" id="ans2" value="B" onclick="setTimeout(() => { this.form.submit(); }, 800)" {% if answer == 'B' %}checked{% endif %}>
                 <label for="ans2">{{ question.answer2 }}</label>
             </td>
         </tr>

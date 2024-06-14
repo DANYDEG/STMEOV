@@ -1,10 +1,10 @@
+import random
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
-
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import CandidateForm
 from django.contrib.auth.models import User
 
-from.models import Exam
+from.models import Breakdown, Exam
 from django.contrib.auth.decorators  import login_required
 
 # Create your views here.
@@ -19,39 +19,41 @@ def home(request):
     return render(request, 'exam/home.html', {'user': user})
 
 @login_required
-
-def question(request, m_id, q_id=1):
+def test(request, q_id=1):
     exam = request.user.exam
+
+    # Obtener todas las preguntas de todos los módulos
+    questions = list(Breakdown.objects.filter(exam=exam))
+
+    # Barajar las preguntas si es la primera pregunta
+    if q_id == 1:
+        random.shuffle(questions)
+        request.session['questions'] = [q.id for q in questions]
+
+    # Obtener la pregunta actual
+    questions_ids = request.session.get('questions')
+    current_question = get_object_or_404(Breakdown, id=questions_ids[q_id - 1])
 
     if request.method == 'POST':
         answer = request.POST['answer']
-        questions = exam.breakdown_set.filter(question__module_id=m_id)
-        # if q_id <= 0 or q_id > len(questions):
-        #     return redirect('exam:home')
+        current_question.answer = answer
+        current_question.save()
 
-        question = questions[q_id - 1 ]
-        question.answer = answer
-        question.save()
-        return redirect('exam:question', m_id, q_id +1)
-    
-    try:
+        if q_id < len(questions):
+            return redirect('exam:test', q_id=q_id + 1)
+        else:
+            exam.compute_score()
+            # Calcular la puntuación por módulo
+            for module in exam.modules.all():
+                exam.compute_score_by_module(module.id)
+            return redirect('exam:home')
 
-        questions = exam.breakdown_set.filter(question__module_id=m_id)
-        # if q_id <= 0 or q_id > len(questions):
-        #     return redirect('exam:home')
+    return render(request, 'exam/test.html', {
+        'question': current_question.question,
+        'answer': current_question.answer,
+        'q_id': q_id,
+    })
 
-        question = questions[q_id - 1 ].question
-        answer = questions[q_id - 1].answer
-        return render(request, 'exam/question.html', {
-            'question': question,
-            'answer': answer,
-            'm_id': m_id,
-            'q_id': q_id,
-        })
-    except IndexError:
-        exam.compute_score_by_module(m_id)
-        exam.compute_score
-        return redirect('exam:home')
 
 
 @login_required

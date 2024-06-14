@@ -92,12 +92,16 @@ class Exam(models.Model):
     #     self.save()
 
 
+
     def compute_score(self):
         score = 0.0
-        for exammodule in self.exammodule_set.all():
-            score += exammodule.score
+        total_questions = 0
+        for breakdown in self.breakdown_set.all():
+            total_questions += 1
+            if breakdown.answer == breakdown.correct:
+                score += 1
 
-        self.score = score
+        self.score = score / total_questions if total_questions > 0 else 0
         self.save()
 
     #----------------------------------------------------------------
