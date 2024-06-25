@@ -11,12 +11,16 @@ from django.contrib.auth.decorators  import login_required
 
 
 @login_required
-
 def home(request):
     user = request.user
     if user.is_superuser:
         return redirect('admin:index')
     return render(request, 'exam/home.html', {'user': user})
+
+@login_required
+def data(request):
+    user = request.user
+    return render(request, 'exam/userdata.html', {'user': user})
 
 @login_required
 def test(request, q_id=1):
@@ -46,13 +50,20 @@ def test(request, q_id=1):
             # Calcular la puntuación por módulo
             for module in exam.modules.all():
                 exam.compute_score_by_module(module.id)
-            return redirect('exam:home')
+            return redirect('exam:results')
 
     return render(request, 'exam/test.html', {
         'question': current_question.question,
         'answer': current_question.answer,
         'q_id': q_id,
+        'total_questions': len(questions),
     })
+
+@login_required
+def results(request):
+    exam = request.user.exam
+    modules = exam.exammodule_set.all().order_by('-score')
+    return render(request, 'exam/results.html', {'modules': modules})
 
 
 

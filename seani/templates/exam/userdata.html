@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <h1 class="welcome">Datos personales</h1>
+    <div class="div-btn-logout">
+        <form action="{% url 'exam:home' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Regresar" class="btn-logout">
+        </form>
+    </div>
+</header>
+
+<section>
+    <div class="datos">
+        <h3>Nombre(s)</h3>
+        <p>{{ user.first_name }}</p>
+    
+        <h3>Apellidos</h3>
+        <p>{{ user.last_name }}</p>
+    
+        <h3>Correo</h3>
+        <p>{{ user.email }}</p>
+    
+        <h3>Carrera</h3>
+        <p>{{ user.exam.career }}</p>
+    </div>
+</section>
+{% endblock %}

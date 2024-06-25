@@ -1,118 +1,117 @@
-body {
 
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    /* background: rgba(217, 217, 217, 0.58); */
-    background: linear-gradient(to right top, rgba(202, 126, 19, 0.879), rgba(82, 210, 108, 0.852) );
+    background: rgba(217, 217, 217, 0.58);
     padding: 0;
-    height: 100vh;
-
+    height: 100%;
 }
 
-header{
+header {
     width: 100%;
     margin: 0;
     padding: 0;
-    /* border: 1px solid black; */
     display: flex;
-    background: rgba(0, 0, 0, 0.63);
+    background: rgba(46, 21, 89, 0.943);
     align-items: center;
+    height: 75px;
 }
 
 .welcome {
     text-align: start;
-
-
     color: white;
     margin: 0;
     padding: 20px;
-    /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.53); */
-    width: 75%;
-
+    width: 80%;
 }
 
-.div-btn-logout{
+.div-btn-logout,
+.btns-header {
     max-width: 25%;
-    display: block;
-    margin: 0 auto;
-    height: auto;
+    display: flex;
+    margin: 0;
+    height: 75px;
 }
 
-
-.btn-logout{
+.btn-logout,
+.btn-userdata {
     padding: 15px;
-    /* border-radius: 10px; */
     background: transparent;
-    /* backdrop-filter: blur(30px); */
     width: 100%;
     text-align: center;
     outline: none;
     box-sizing: border-box;
     border-style: none;
-    transition: 0.3s ;
+    transition: 0.3s;
     color: white;
     margin: 0;
-    /* border: 1px solid black; */
-    height: 76px;
+    height: 75px;
 }
-
-.btn-logout:hover{
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  */
+.btn-logoutt{
+    padding: 15px;
+    background: transparent;
+    width: 95%;
+    text-align: center;
+    outline: none;
+    box-sizing: border-box;
+    border-style: none;
+    transition: 0.3s;
+    color: rgba(152, 29, 29, 0.806);
+    margin: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+.btn-logoutt:hover {
     transition: 0.3s;
     background-color: #d62a2ad6;
-    height: auto;
     color: black;
-    height: 76px;
+    height: 40px;
+}
+
+.btn-logout:hover {
+    transition: 0.3s;
+    background-color: #d62a2ad6;
+    color: black;
+    height: 75px;
+}
+
+.btn-userdata:hover {
+    transition: 0.3s;
+    background-color: #d6742ad6;
+    color: black;
+    height: 75px;
 }
 
 h1 {
     text-align: center;
-
     backdrop-filter: blur(30px);
     color: white;
     margin: 0;
     padding: 20px;
-    /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.53); */
     width: 100%;
     box-sizing: border-box;
 }
 
-h3{
+h3 {
     margin: 5px;
 }
 
-
-
-
 .fm-login {
-    /*form login*/
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(30px);
-    /* display: flex; */
-    /* flex-direction: column; */
     text-align: center;
-
-    /* width:  95%; */
-
-    height: auto;
-    padding: 40px 20% 40px 20%;
-
+    padding: 40px 5%;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    /* margin: 50px; */
-
     border-radius: 15px;
-
     max-width: 95%;
     display: block;
     margin: 50px auto;
     height: auto;
-
 }
 
 .fm-login input {
-    /*inputs dentro del form login*/
     border-radius: 8px;
     background: transparent;
     border-style: none;
@@ -126,26 +125,19 @@ h3{
     box-sizing: border-box;
 }
 
-
 input:hover {
     background: rgba(255, 255, 255, 0.4);
     transition: 0.3s;
 }
 
-a:hover{
+a:hover {
     background: rgba(255, 255, 255, 0.6);
     transition: 0.3s;
-
 }
-/* 
-section{
-    border: 1px solid black;
-} */
 
 .datos {
     width: 100%;
     padding: 20px;
-    height: auto;
     box-sizing: border-box;
     background: rgba(217, 217, 217, 0.58);
     backdrop-filter: blur(6px);
@@ -153,210 +145,252 @@ section{
     border: 1px solid rgb(255, 166, 0);
     border-radius: 15px;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     text-align: center;
-    margin: 30px;
-
-
-    /* align-items: center; */
-    justify-content: center;
-    user-select: none;
+    margin: 30px auto;
     font-weight: bolder;
     color: black;
-
-    /* margin-left: 30%; */
 }
-.datos p{
+
+.datos p {
     color: rgb(196, 132, 87);
 }
 
-/* cuadro de tests */
-.modulos{
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
+section {
+    height: 500px;
+}
 
+.modulos {
+    width: 90%;
+    box-sizing: border-box;
     background: rgba(217, 217, 217, 0.58);
     backdrop-filter: blur(6px);
     box-shadow: 12px 17px 51px 20px rgba(0, 0, 0, 0.354);
-    border: 1px solid rgb(83, 218, 94);
-
+    border: 1px solid rgb(204, 138, 62);
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
-
-    padding: 20px 20px 0px 20px;
-
-    margin: 30px;
-
+    align-items: center;
+    padding: 20px;
+    margin: 100px auto;
     border-radius: 15px;
     position: relative;
-
 }
-/* link al test */
-.startTest{
-    margin: 20px 0 20px 0;
+
+.startTest {
+    margin: 20px 0;
     text-decoration: none;
     transition: 0.3s;
-    color: rgb(59, 184, 65);
-    height: auto;
+    color: rgb(34, 146, 39);
     padding: 8px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.916);
+    width: 70%;
+    height: 25px;
 }
 
-.startTest:hover{
+.startTest:hover {
     box-shadow: 12px 12px 51px 10px rgba(0, 0, 0, 0.354);
     border: 1px solid rgba(97, 224, 133, 0.916);
 }
 
-.modulos2{
+.modulos2 {
     padding: 20px;
     text-align: center;
     line-height: 1.7;
     font-size: large;
 }
 
-
-
-
-
-section{
+section {
     margin: 0;
     display: flex;
-    
-    
 }
 
 .pregunta {
     width: 80%;
-    height: auto;
     box-sizing: border-box;
     background: rgba(217, 217, 217, 0.58);
     backdrop-filter: blur(6px);
-
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
-
     border: 1px solid rgb(255, 255, 255);
     padding: 20px;
-
     box-shadow: 12px 8px 51px 20px rgba(0, 0, 0, 0.354);
-    margin: 30px;
-    margin-left: 10%;
-
+    margin: 120px auto;
     border-radius: 15px;
-
-    /* margin-left: 30%; */
-    
-    text-align: center;
 }
 
-
-
-
-
-img{
-    max-width: 75%;
-    display: block;
-    margin: 0 auto;
-    max-height: 250px;
-
-    
-}
-
-
-.siguiente{
+.siguiente {
     padding: 15px;
     border-radius: 10px;
     background: transparent;
     backdrop-filter: blur(30px);
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     width: 100%;
     text-align: center;
     outline: none;
     box-sizing: border-box;
     border-style: none;
-    transition: 0.3s ;
+    transition: 0.3s;
     margin-top: 50px;
 }
 
-
-
-.ingresar{
+.ingresar {
     padding: 30px 0 0 0;
-    
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(30px);
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
-    
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     outline: none;
     box-sizing: border-box;
     border-style: none;
-    transition: 0.3s ;
-    
-    
+    transition: 0.3s;
     max-width: 25%;
     display: block;
     margin: 50px auto;
     height: 80px;
     text-decoration: none;
     color: black;
-
 }
 
-
-table{
-    /* border: 1px solid black; */
+table {
     width: 100%;
-
     border-spacing: 10px;
 }
 
-
-td{
-    /* border: 1px solid black; */
+td {
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.073);
     border-radius: 10px;
     border: 1px solid rgb(255, 255, 255);
     transition: 0.3s;
     backdrop-filter: blur(80px);
-    height: auto;
     padding: 0;
-    /* border: 1px solid black; */
+    width: 50%;
 }
 
-.td1:hover{
+.td1:hover {
     transition: 0.3s;
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.626);
     border: 1px solid rgb(9, 255, 62);
 }
-.td2:hover{
+
+.td2:hover {
     transition: 0.3s;
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.626);
     border: 1px solid rgb(230, 154, 83);
 }
 
-/* Oculta los círculos de radio */
 input[type="radio"] {
     display: none;
-  }
-  
-  /* Estilos de las etiquetas para ocupar todo el espacio del <td> */
-  label {
+}
+
+label {
     display: block;
-    padding: 10px;/* Ajusta el espaciado según sea necesario */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-  }
+    padding: 10px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+ul{
+    /* border: 1px solid black; */
+    margin: 20px;
+    padding: 0;
+    background: rgb(240,161,50);
+    background: linear-gradient(180deg, rgba(240,161,50,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 100%);
+    border-radius: 15px;
+    
+    
+    
+}
+
+li{
+    border: 1px solid white; 
+    padding: 20px;
+    /* border-radius: 15px; */
+    text-align: center;
+    list-style: none;
+    background: rgba(220, 220, 220, 0.4);
+    backdrop-filter: blur(30px);
+}
 
 
 
 
 
+/* Media queries para responsividad */
+@media (max-width: 1200px) {
+    .pregunta {
+        width: 90%;
+        margin: 60px auto;
+    }
+}
 
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        padding: 0;
+    }
+    .pregunta{
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
 
+    .welcome {
+        width: 100%;
+        text-align: center;
+        height: auto;
+    }
+
+    .btns-header {
+        max-width: 100%;
+        display: flex;
+        justify-content: center; /* Centra los botones horizontalmente */
+        margin-top: 5px;
+        height: 50px;
+    }
+
+    .btn-logout{
+        height: auto;
+        border-radius: 10px;
+    }
+    .btn-logoutt{
+        height: auto;
+        width: 80%;
+        height: 25px;
+        margin-bottom: 0;
+    }
+
+    .btn-logoutt:hover{
+        transition: 0.3s;
+        height: 40px;
+    }
+    .btn-userdata{
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 0;
+    }
+    .btn-userdata:hover{
+        transition: 0.3s;
+        height: auto;
+        border-radius: 10px;
+    }
+    .btn-logout:hover{
+        transition: 0.3s;
+        height: auto;
+        border-radius: 10px;
+    }
+}

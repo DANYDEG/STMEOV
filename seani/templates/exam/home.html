@@ -3,7 +3,12 @@
 {% block content %}
 <header>
     <h1 class="welcome">Bienvenido {{ user.username }}</h1>
-    <div class="div-btn-logout">
+    <!-- <div class="div-btn-logout"> -->
+    <div class="btns-header">
+        <form action="{% url 'exam:data' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Datos personales" class="btn-userdata">
+        </form>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <input type="submit" value="Cerrar Sesion" class="btn-logout">
@@ -11,7 +16,7 @@
     </div>
 </header>
 
-<section>
+<!-- <section>
     <div class="datos">
         <h3>Nombre(s)</h3>
         <p>{{ user.first_name }}</p>
@@ -25,7 +30,7 @@
         <h3>Carrera</h3>
         <p>{{ user.exam.career }}</p>
     </div>
-</section>
+</section> -->
 
 <section>
     <div class="modulos">

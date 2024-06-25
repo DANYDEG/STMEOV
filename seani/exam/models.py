@@ -161,6 +161,10 @@ class ExamModule(models.Model):
     def __str__(self):
         return f"{self.module} - {self.score}"
     
+    @property
+    def total_questions(self):
+        return self.module.question_set.count()
+    
 class Breakdown(models.Model):
     exam = models.ForeignKey(
         Exam,
